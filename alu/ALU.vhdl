@@ -27,8 +27,6 @@ architecture rtl of ALU is
                 when "010" => alu_res <= SrcA and SrcB;
                 --or
                 when "011" => alu_res <= SrcA or SrcB;
-                --xor
-                when "100" => alu_res <= SrcA xor SrcB;
                 --slt
                 when "101" => 
                     if(SrcA < SrcB)then
