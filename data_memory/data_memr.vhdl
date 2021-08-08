@@ -14,22 +14,19 @@ end data_memr;
 
 architecture rtl of data_memr is
 
-    type ram_type is array (65535 downto 0) of std_logic_vector(31 downto 0);
+    type ram_type is array (63 downto 0) of std_logic_vector(31 downto 0);
     
     signal mem : ram_type := (others => (others => '0'));
     
     begin
-        process begin
-            loop
+        process(clk, write_en) begin
                 if rising_edge(clk) then
                     if(write_en = '1')then
                         mem(to_integer(unsigned(addr_port(7 downto 2)))) <= write_data;
                     end if;
                 end if;
-                read_data <= mem(to_integer(unsigned(addr_port(7 downto 2))));
-                wait on clk, addr_port;
-            end loop;
         end process;
-
-        
+        process(addr_port)begin
+            read_data <= mem(to_integer(unsigned(addr_port(7 downto 2))));
+        end process;
     end rtl;
