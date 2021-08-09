@@ -10,8 +10,7 @@ entity datapath is
         signal ALUControl : in std_logic_vector(2 downto 0);
         signal RegWrite : in std_logic;
         signal ImmSrc : in std_logic_vector(1 downto 0);
-        signal PC_buf : buffer std_logic_vector(31 downto 0);
-        signal ALUResult, WriteData, ImmExt : buffer std_logic_vector(31 downto 0);
+        signal Instr : buffer std_logic_vector(31 downto 0);
         signal MemWrite : in std_logic;
         signal ResultSrc : in std_logic;
         signal Zero : out std_logic
@@ -19,93 +18,19 @@ entity datapath is
 end datapath;
 
 architecture rtl of datapath is
-    --Components
-    -- component adder is
-    --     generic(numberbits_b : integer := 32);
-    --     port(
-    --         a_in : in std_logic_vector(31 downto 0);
-    --         b_in : in std_logic_vector(numberbits_b - 1 downto 0);
-    --         c_out: out std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component ALU
-    --     port(
-    --         SrcA : in std_logic_vector(31 downto 0);
-    --         SrcB : in std_logic_vector(31 downto 0);
-    --         ALUControl : in std_logic_vector(2 downto 0);
-    --         Zero : out std_logic;
-    --         ALUResult : buffer std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component data_memr is
-    --     port(
-    --         addr_port : in std_logic_vector(31 downto 0);
-    --         write_data : in std_logic_vector(31 downto 0);
-    --         clk : in std_logic;
-    --         write_en : in std_logic;
-    --         read_data : out std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component extend is
-    --     port(
-    --         ImmSrc      : in std_logic_vector(1 downto 0);
-    --         instruction : in std_logic_vector(31 downto 7);
-    --         ImmExt      : buffer std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component instr_mem is
-    --     port(
-    --         addr_instr : in std_logic_vector(31 downto 0);
-    --         rd_instr : out std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component mux_2 is
-    --     generic(number : integer := 8);
-    --     port(
-    --         port_in1 :  in std_logic_vector(number-1 downto 0); 
-    --         port_in2 :  in std_logic_vector(number-1 downto 0);
-    --         sel      :  in std_logic;
-    --         port_out :  out std_logic_vector(number-1 downto 0)
-    --     );
-    -- end component;
-
-    -- component pc is
-    --     port(
-    --         PCNext : in std_logic_vector(31 downto 0);
-    --         clk    : in std_logic;
-    --         reset  : in std_logic;
-    --         PC_cur : buffer std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
-
-    -- component reg_file is
-    --     port(
-    --         read_port_addr1 : in std_logic_vector(4 downto 0);
-    --         read_port_addr2 : in std_logic_vector(4 downto 0);
-    --         write_port_addr : in std_logic_vector(4 downto 0);
-    --         write_data : in std_logic_vector(31 downto 0);
-    --         write_en : in std_logic;
-    --         clk : in std_logic;
-    --         read_data1 : out std_logic_vector(31 downto 0);
-    --         read_data2 : buffer std_logic_vector(31 downto 0)
-    --     );
-    -- end component;
+    
 
     -- Signals
     signal RD1 : std_logic_vector(31 downto 0):= (others => '0');
     signal PCPlus4 : std_logic_vector(31 downto 0):= (others => '0');
     signal PCTarget : std_logic_vector(31 downto 0):= (others => '0');
     signal PCNext : std_logic_vector(31 downto 0):= (others => '0');
-    signal Instr : std_logic_vector(31 downto 0):= (others => '0');
+    
     signal Result : std_logic_vector(31 downto 0):= (others => '0');
     signal SrcB : std_logic_vector(31 downto 0):= (others => '0');
     signal ReadData : std_logic_vector(31 downto 0):= (others => '0');
-
+    signal PC_buf : std_logic_vector(31 downto 0);
+    signal ALUResult, WriteData, ImmExt : std_logic_vector(31 downto 0):= (others => '0');
     begin
 
         inst_PCSrc : entity work.mux_2(rtl)

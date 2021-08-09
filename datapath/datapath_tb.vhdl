@@ -13,17 +13,17 @@ architecture test of datapath_tb is
     signal ALUControl : std_logic_vector(2 downto 0);
     signal RegWrite : std_logic;
     signal ImmSrc : std_logic_vector(1 downto 0);
-    signal PC_buf : std_logic_vector(31 downto 0);
-    signal ALUResult, WriteData, ImmExt : std_logic_vector(31 downto 0);
+    signal Instr : std_logic_vector(31 downto 0);
     signal MemWrite : std_logic;
     signal ResultSrc : std_logic;
     signal Zero : std_logic;
+    signal ALUResult : std_logic_vector(31 downto 0);
 
     begin
 
         inst_datapath : entity work.datapath(rtl)
                         port map(clk => clk, reset => reset, PCSrc => PCSrc, ALUSrc => ALUSrc, ALUControl => ALUControl, RegWrite => RegWrite, ImmSrc => ImmSrc,
-                                PC_buf => PC_buf, ALUResult => ALUResult, WriteData => WriteData, ImmExt => ImmExt, MemWrite => MemWrite, ResultSrc => ResultSrc, Zero => Zero);
+                                 MemWrite => MemWrite, ALUResult => ALUResult, ResultSrc => ResultSrc, Zero => Zero, Instr => Instr);
         reset <= '1';
         process begin
             reset <= '0';
