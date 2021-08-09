@@ -2,6 +2,10 @@
 
 ![image](https://user-images.githubusercontent.com/88595269/128730771-560da5b6-f33b-410c-bc03-2dc68f2c748e.png)
 
+# Requirements
+1. GHDL
+2. GTKWave
+
 # References
 
 1. David M. Harris and Sarah L. Harris, "Digital Design and Computer Architecture, RISC-V Edition" 
