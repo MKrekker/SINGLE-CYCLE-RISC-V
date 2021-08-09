@@ -5,6 +5,7 @@
 # Requirements
 1. GHDL
 2. GTKWave
+3. VHDL
 
 # References
 
