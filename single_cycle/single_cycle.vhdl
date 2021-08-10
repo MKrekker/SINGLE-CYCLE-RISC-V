@@ -4,9 +4,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity single_cycle is
     port(
-        signal clk : in std_logic;
-        signal reset : in std_logic;
-        signal instr : buffer std_logic_vector(31 downto 0) 
+         clk : in std_logic;
+         reset : in std_logic;
+         instr : buffer std_logic_vector(31 downto 0) 
     );
 end single_cycle;
 

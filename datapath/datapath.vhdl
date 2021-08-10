@@ -4,16 +4,16 @@ use ieee.numeric_std.all;
 
 entity datapath is
     port(
-        signal clk, reset : in std_logic;
-        signal PCSrc : in std_logic;
-        signal ALUSrc : in std_logic;
-        signal ALUControl : in std_logic_vector(2 downto 0);
-        signal RegWrite : in std_logic;
-        signal ImmSrc : in std_logic_vector(1 downto 0);
-        signal Instr : buffer std_logic_vector(31 downto 0);
-        signal MemWrite : in std_logic;
-        signal ResultSrc : in std_logic;
-        signal Zero : out std_logic
+         clk, reset : in std_logic;
+         PCSrc : in std_logic;
+         ALUSrc : in std_logic;
+         ALUControl : in std_logic_vector(2 downto 0);
+         RegWrite : in std_logic;
+         ImmSrc : in std_logic_vector(1 downto 0);
+         Instr : buffer std_logic_vector(31 downto 0);
+         MemWrite : in std_logic;
+         ResultSrc : in std_logic;
+         Zero : out std_logic
     );
 end datapath;
 

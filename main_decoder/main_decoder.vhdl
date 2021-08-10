@@ -4,14 +4,14 @@ use ieee.numeric_std.all;
 
 entity main_decoder is
     port(
-        signal op : in std_logic_vector(6 downto 0);
-        signal branch : out std_logic;
-        signal MemWrite : out std_logic;
-        signal ALUSrc : out std_logic;
-        signal ImmSrc : out std_logic_vector(1 downto 0);
-        signal RegWrite : out std_logic;
-        signal ALUOp : out std_logic_vector(1 downto 0);
-        signal ResultSrc : out std_logic
+         op : in std_logic_vector(6 downto 0);
+         branch : out std_logic;
+         MemWrite : out std_logic;
+         ALUSrc : out std_logic;
+         ImmSrc : out std_logic_vector(1 downto 0);
+         RegWrite : out std_logic;
+         ALUOp : out std_logic_vector(1 downto 0);
+         ResultSrc : out std_logic
     );
 end main_decoder;
 

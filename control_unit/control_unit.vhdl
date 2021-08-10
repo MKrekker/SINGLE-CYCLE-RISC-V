@@ -4,17 +4,17 @@ use ieee.numeric_std.all;
 
 entity control_unit is
     port(
-        signal op : in std_logic_vector(6 downto 0);
-        signal funct3 : in std_logic_vector(14 downto 12);
-        signal funct7_5 : in std_logic;
-        signal Zero : in std_logic;
-        signal PCSrc : out std_logic;
-        signal ResultSrc : out std_logic;
-        signal MemWrite : out std_logic;
-        signal ALUControl : out std_logic_vector(2 downto 0);
-        signal ALUSrc : out std_logic;
-        signal ImmSrc : out std_logic_vector(1 downto 0);
-        signal RegWrite : out std_logic
+         op : in std_logic_vector(6 downto 0);
+         funct3 : in std_logic_vector(14 downto 12);
+         funct7_5 : in std_logic;
+         Zero : in std_logic;
+         PCSrc : out std_logic;
+         ResultSrc : out std_logic;
+         MemWrite : out std_logic;
+         ALUControl : out std_logic_vector(2 downto 0);
+         ALUSrc : out std_logic;
+         ImmSrc : out std_logic_vector(1 downto 0);
+         RegWrite : out std_logic
     );
 end control_unit;
 
