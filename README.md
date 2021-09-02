@@ -17,19 +17,17 @@ $ cd  SINGLE-CYCLE-RISC-V
 
 ### compiling VHDL code and looking wave diagrams in GTKWave
 
-$ ghdl -s test_file.vhdl                 #Syntax Check  
-$ ghdl -a test_file.vhdl                 #Analyse  
-$ ghdl -e test_file.vhdl                 #Build   
-$ ghdl -r test_file --vcd=testbench.vcd  #VCD-Dump  
-$ gtkwave testbench.vcd                  #Start GTKWave  
+      $ ghdl -s test_file.vhdl                 #Syntax Check  
+      $ ghdl -a test_file.vhdl                 #Analyse  
+      $ ghdl -e test_file.vhdl                 #Build   
+      $ ghdl -r test_file --vcd=testbench.vcd  #VCD-Dump  
+      $ gtkwave testbench.vcd                  #Start GTKWave  
 
 Also you can compile and look on wave diagrams in GTKWave with command  
   
-  $ bash script.sh test_file.vhdl test_file_testbench.vhdl  
+      $ bash script.sh test_file.vhdl test_file_testbench.vhdl  
  
 Last file must be testbench !!!   
-
-#### last file must be testbench
 
 ## References
 
