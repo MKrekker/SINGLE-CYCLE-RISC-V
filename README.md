@@ -26,7 +26,7 @@ Also you can compile and look on wave diagrams in GTKWave with command
   
       $ bash script.sh test_file.vhdl test_file_testbench.vhdl  
  
-Last file must be testbench !!!   
+Last file must be **testbench** !!!   
 
 ## References
 
