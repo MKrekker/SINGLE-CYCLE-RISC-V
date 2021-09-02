@@ -12,8 +12,8 @@
 
 ### cloning repository
 
-$ git clone https://github.com/MKrekker/SINGLE-CYCLE-RISC-V.git  
-$ cd  SINGLE-CYCLE-RISC-V  
+      $ git clone https://github.com/MKrekker/SINGLE-CYCLE-RISC-V.git  
+      $ cd  SINGLE-CYCLE-RISC-V  
 
 ### compiling VHDL code and looking on wave diagrams in GTKWave
 
