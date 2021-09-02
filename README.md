@@ -12,16 +12,16 @@
 
 ### cloning repository
 
-$ git clone https://github.com/MKrekker/SINGLE-CYCLE-RISC-V.git
-$ cd  SINGLE-CYCLE-RISC-V
+$ git clone https://github.com/MKrekker/SINGLE-CYCLE-RISC-V.git  
+$ cd  SINGLE-CYCLE-RISC-V  
 
 ### compiling VHDL code and looking wave diagram on GTKWave
 
-$ ghdl -s test_file.vhdl                 #Syntax Check
-$ ghdl -a test_file.vhdl                 #Analyse
-$ ghdl -e test_file.vhdl                 #Build 
-$ ghdl -r test_file --vcd=testbench.vcd  #VCD-Dump
-$ gtkwave testbench.vcd                  #Start GTKWave
+$ ghdl -s test_file.vhdl                 #Syntax Check  
+$ ghdl -a test_file.vhdl                 #Analyse  
+$ ghdl -e test_file.vhdl                 #Build   
+$ ghdl -r test_file --vcd=testbench.vcd  #VCD-Dump  
+$ gtkwave testbench.vcd                  #Start GTKWave  
 
 ## References
 
