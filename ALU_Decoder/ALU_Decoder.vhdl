@@ -16,8 +16,8 @@ architecture rtl of ALU_Decoder is
     begin
         process(op5, funct3, funct7_5, ALUOp) begin
             case ALUOp is
-                when "00" => ALUControl <= "000"; --lw, sw
-                when "01" => ALUControl <= "001"; --beq
+                when "00" => ALUControl <= "000"; --add
+                when "01" => ALUControl <= "001"; --sub
                 when others => case funct3 is
                             when "000" => if ((op5 and funct7_5) = '1') then
                                                 ALUControl <= "001"; --sub

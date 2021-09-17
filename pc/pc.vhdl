@@ -16,7 +16,7 @@ architecture rtl of pc is
             begin
                 if (reset = '1')then
                     PC_cur <= (others => '0');
-                else if clk'event and clk = '1' then
+                else if rising_edge(clk) then
                         PC_cur <= PCNext;
                     end if;
                 end if;

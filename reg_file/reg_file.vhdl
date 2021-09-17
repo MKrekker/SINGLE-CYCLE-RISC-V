@@ -18,7 +18,7 @@ end reg_file;
 architecture rtl of reg_file is
 
     type registers is array (31 downto 0) of std_logic_vector(31 downto 0);
-    
+
     --Note x0 is hardwired to 0
     signal mem_1 : registers :=(others => (others => '0'));
     begin
@@ -33,6 +33,6 @@ architecture rtl of reg_file is
 
         read_data1 <= mem_1(to_integer(unsigned(read_port_addr1)));
         read_data2 <= mem_1(to_integer(unsigned(read_port_addr2)));
-      
-        
+
+
         end rtl;

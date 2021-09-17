@@ -15,7 +15,7 @@ end ALU;
 architecture rtl of ALU is
 
     signal alu_res : std_logic_vector(31 downto 0);
-    
+
     begin
         process(SrcA, SrcB, ALUControl)begin
             case ALUControl is
@@ -26,18 +26,18 @@ architecture rtl of ALU is
                 --and
                 when "010" => alu_res <= SrcA and SrcB;
                 --or
-                when "011" => alu_res <= SrcA or SrcB;
+                when "011" => alu_res <=  SrcA or SrcB;
                 --slt
-                when "101" => 
+                when "101" =>
                     if(SrcA < SrcB)then
                         alu_res <= x"00000001";
-                    else 
+                    else
                     alu_res <= x"00000000";
                     end if;
                 when others => alu_res <= (others => 'U');
                 end case;
             end process;
-            
+
             Zero <= '1' when alu_res = x"00000000" else '0';
 
             ALUResult <= alu_res;

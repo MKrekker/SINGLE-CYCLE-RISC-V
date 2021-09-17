@@ -19,35 +19,22 @@ architecture test of single_cycle_tb is
                 reset => reset,
                 instr => instr
             );
-        
+
         process begin
             reset <= '1';
-            clk <= '0';
-            wait for 5 ns;
+            clk <= '1';
+            wait for 10 ns;
             reset <= '0';
-            clk <= '1';
-            wait for 5 ns;
             clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-            clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-            clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-            clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-            clk <= '0';
-            wait for 5 ns;
-            clk <= '1';
-            wait for 5 ns;
-            clk <= '0';
+            wait for 10 ns;
+
+
+            for i in 1 to 20 loop
+              clk <= '1';
+              wait for 10 ns;
+              clk <= '0';
+              wait for 10 ns;
+            end loop;
             wait;
         end process;
     end test;

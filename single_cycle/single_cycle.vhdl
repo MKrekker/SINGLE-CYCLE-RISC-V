@@ -6,7 +6,7 @@ entity single_cycle is
     port(
          clk : in std_logic;
          reset : in std_logic;
-         instr : buffer std_logic_vector(31 downto 0) 
+         instr : buffer std_logic_vector(31 downto 0)
     );
 end single_cycle;
 
@@ -14,7 +14,7 @@ architecture rtl of single_cycle is
 
     signal Zero : std_logic;
     signal PCSrc : std_logic;
-    signal ResultSrc : std_logic;
+    signal ResultSrc : std_logic_vector(1 downto 0);
     signal MemWrite : std_logic;
     signal ALUControl : std_logic_vector(2 downto 0);
     signal ALUSrc : std_logic;
@@ -22,10 +22,10 @@ architecture rtl of single_cycle is
     signal RegWrite : std_logic;
     signal PC_buf : std_logic_vector(31 downto 0);
     signal ALUResult, WriteData, ImmExt : std_logic_vector(31 downto 0);
-    
-    
+
+
     begin
-       
+
         inst_control_unit : entity work.control_unit(rtl)
             port map(
                 op => instr(6 downto 0),
@@ -53,6 +53,6 @@ architecture rtl of single_cycle is
                Instr => instr,
                MemWrite => MemWrite,
                ResultSrc => ResultSrc,
-               Zero => Zero 
+               Zero => Zero
             );
 end rtl;
